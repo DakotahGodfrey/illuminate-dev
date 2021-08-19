@@ -11,7 +11,9 @@ mongoose.connect(keys.mongoURI, mongoConfig, () => {
   console.log('connected to mongo.');
 });
 require('./models/User');
+require('./services/passport');
 
+require('./middlewares');
 const app = express();
 
 const port = process.env.PORT || 5000;
