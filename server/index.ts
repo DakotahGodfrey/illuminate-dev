@@ -18,22 +18,16 @@ require('./services/passport');
 
 require('./middlewares')(app);
 
-app.get('/', (req, res) => res.send({ greeting: 'hello world' }));
-
 require('./routes/auth')(app);
 require('./routes/api')(app);
 
-app.get('/test', (req, res) => {
-  res.send('testing');
-});
-
 if (process.env.NODE_ENV === 'production') {
   // allow express to serve up production assets.
-  app.use(express.static('../client/build'));
+  app.use(express.static('../../client/build'));
   // express can also serve up index.html if the route is unhandled
   require('path');
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client/build/index.html'));
+    res.sendFile(path.resolve(__dirname, '../../client/build/index.html'));
   });
 }
 const port = process.env.PORT || 5000;
