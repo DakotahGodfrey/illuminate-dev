@@ -14,11 +14,11 @@ module.exports = (app: express.Application) => {
       secret: 'secretCode',
       resave: true,
       saveUninitialized: true,
-      cookie: {
-        sameSite: 'none',
-        secure: true,
-        maxAge: 1000 * 60 * 60 * 24 * 7,
-      },
+      // cookie: {
+      //   // sameSite: 'none',
+      //   secure: true,
+      //   maxAge: 1000 * 60 * 60 * 24 * 7,
+      // },
     })
   );
   app.use(passport.initialize());

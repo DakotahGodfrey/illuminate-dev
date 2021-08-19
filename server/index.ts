@@ -11,8 +11,8 @@ const mongoConfig = {
 mongoose.connect(keys.mongoURI, mongoConfig, () => {
   console.log('connected to mongo.');
 });
-require('./models/User');
 
+require('./models/User');
 require('./services/passport');
 
 require('./middlewares')(app);
@@ -20,9 +20,9 @@ require('./middlewares')(app);
 app.get('/', (req, res) => res.send({ greeting: 'hello world' }));
 
 require('./routes/auth')(app);
+require('./routes/api')(app);
 
 const port = process.env.PORT || 5000;
-
 app.listen(port, () => {
   console.log(`listening on PORT: ${port}`);
 });
