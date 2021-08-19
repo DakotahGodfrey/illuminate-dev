@@ -1,4 +1,5 @@
 import express from 'express';
+import mongoose from 'mongoose';
 const keys = require('./keys');
 
 const mongoConfig = {
@@ -6,6 +7,10 @@ const mongoConfig = {
   useUnifiedTopology: true,
   useCreateIndex: true,
 };
+mongoose.connect(keys.mongoURI, mongoConfig, () => {
+  console.log('connected to mongo.');
+});
+require('./models/User');
 
 const app = express();
 
