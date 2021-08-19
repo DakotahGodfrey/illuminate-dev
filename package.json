@@ -2,7 +2,7 @@
   "name": "illuminate-dev",
   "version": "1.0.0",
   "description": "simple e-learning app integrated with github",
-  "main": "server/build/index.js",
+  "main": "server/index.ts",
   "repository": "https://github.com/DakotahGodfrey/illuminate-dev.git",
   "author": "Dakotah Godfrey <dakotah.godfrey.dev@gmail.com>",
   "license": "MIT",
