@@ -8,20 +8,19 @@ export const useUser = () => {
   const { user } = auth;
   const dispatch = useAppDispatch();
 
-  const getUser = async () => {
-    const res = await axios.get('/api/current-user');
-    const data = res.data;
-    if (data.error) {
-      return;
-    }
-    dispatch(updateUser(data));
-  };
-
   useEffect(() => {
     if (!user) {
+      const getUser = async () => {
+        const res = await axios.get('/api/current-user');
+        const data = res.data;
+        if (data.error) {
+          return;
+        }
+        dispatch(updateUser(data));
+      };
       getUser();
     }
-  }, []);
+  }, [user, dispatch]);
 
   return user;
 };
