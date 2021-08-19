@@ -23,6 +23,10 @@ app.get('/', (req, res) => res.send({ greeting: 'hello world' }));
 require('./routes/auth')(app);
 require('./routes/api')(app);
 
+app.get('/test', (req, res) => {
+  res.send('testing');
+});
+
 if (process.env.NODE_ENV === 'production') {
   // allow express to serve up production assets.
   app.use(express.static('../client/build'));

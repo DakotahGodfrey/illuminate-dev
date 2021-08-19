@@ -5,9 +5,7 @@ import passport from 'passport';
 
 module.exports = (app: express.Application) => {
   app.use(express.json());
-  app.use(
-    cors({ origin: 'https://illuminate-dev.netlify.app/', credentials: true })
-  );
+  app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
   app.set('trust proxy', 1);
   app.use(
     session({
@@ -15,7 +13,7 @@ module.exports = (app: express.Application) => {
       resave: true,
       saveUninitialized: true,
       // cookie: {
-      //   // sameSite: 'none',
+      //   sameSite: 'none',
       //   secure: true,
       //   maxAge: 1000 * 60 * 60 * 24 * 7,
       // },
