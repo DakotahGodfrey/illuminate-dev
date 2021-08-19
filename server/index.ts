@@ -25,7 +25,7 @@ require('./routes/api')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // allow express to serve up production assets.
-  app.use(express.static('client/build'));
+  app.use(express.static('../client/build'));
   // express can also serve up index.html if the route is unhandled
   require('path');
   app.get('*', (req, res) => {
