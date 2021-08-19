@@ -44,9 +44,7 @@ const Navbar: React.FC<NavProps> = ({ isAuth }) => {
           <li>
             <Link to={'/playground'}>Playground</Link>
           </li>
-          <li>
-            <Link to={'/profile'}>Playground</Link>
-          </li>
+
           <li>
             <a href='/auth/logout'>Logout</a>
           </li>

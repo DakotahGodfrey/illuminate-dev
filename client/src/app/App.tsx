@@ -9,7 +9,6 @@ const App: React.FC = () => {
   return (
     <Router>
       <Navbar isAuth={user !== null} />
-      <a href='/auth'>Auth</a>
       {user ? <Authenticated /> : <Unauthenticated />}
     </Router>
   );
