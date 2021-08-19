@@ -26,6 +26,6 @@
   "scripts": {
     "dev": "nodemon index.ts",
     "build": "tsc -p .",
-    "start": "NODE_ENV=production node build/index.js"
+    "start": "node build/index.js"
   }
 }
