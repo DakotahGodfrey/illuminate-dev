@@ -23,12 +23,12 @@ require('./routes/api')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // allow express to serve up production assets.
-  app.use(express.static('client/build'));
+  app.use(express.static(path.join(__dirname, '../../client/build')));
   // express can also serve up index.html if the route is unhandled
   require('path');
   console.log(path);
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client/build/index.html'));
+    res.sendFile(path.join(__dirname, '../../client/build/index.html'));
   });
 }
 const port = process.env.PORT || 5000;
