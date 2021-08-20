@@ -5,6 +5,9 @@ import PreviewToolbar from './PreviewToolbar';
 import PreviewWindow from './PreviewWindow';
 import Sidebar from './Sidebar';
 import ContentWindow from './ContentWindow';
+import ProjectCard from './ProjectCard';
+import ProjectWindow from './ProjectWindow';
+import CreateRepoModal from './CreateRepoModal';
 export {
   Navbar,
   EditorToolbar,
@@ -13,4 +16,7 @@ export {
   PreviewToolbar,
   PreviewWindow,
   Sidebar,
+  ProjectCard,
+  ProjectWindow,
+  CreateRepoModal,
 };
