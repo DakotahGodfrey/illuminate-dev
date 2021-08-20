@@ -54,20 +54,13 @@ const Projects = () => {
   );
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [projects, setProjects] = useState([]);
-  const [showForm, setShowForm] = useState(false);
-  const handleFormClick = () => {
-    setShowForm(!showForm);
-  };
+
   const handleLanguageClick = (lang: 'html' | 'css' | 'javascript') => {
     setLanguage(lang);
   };
   return (
     <ProjectsWrapper>
-      <ProjectWindow
-        projects={projects}
-        handleFormClick={handleFormClick}
-        showForm={showForm}
-      />
+      <ProjectWindow projects={projects} />
       <Sidebar />
       <EditorToolbar
         language={language}

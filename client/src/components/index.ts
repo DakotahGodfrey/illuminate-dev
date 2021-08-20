@@ -7,6 +7,7 @@ import Sidebar from './Sidebar';
 import ContentWindow from './ContentWindow';
 import ProjectCard from './ProjectCard';
 import ProjectWindow from './ProjectWindow';
+import CreateRepoModal from './CreateRepoModal';
 export {
   Navbar,
   EditorToolbar,
@@ -17,4 +18,5 @@ export {
   Sidebar,
   ProjectCard,
   ProjectWindow,
+  CreateRepoModal,
 };

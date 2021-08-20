@@ -1,4 +1,5 @@
-import { ProjectCard } from 'components';
+import { CreateRepoModal, ProjectCard } from 'components';
+import { useState } from 'react';
 import React from 'react';
 
 interface ProjectWindowProps {
@@ -6,25 +7,14 @@ interface ProjectWindowProps {
     title: string;
     body: string;
   }[];
-  handleFormClick: () => void;
-  showForm: boolean;
 }
 
-const ProjectWindow: React.FC<ProjectWindowProps> = ({
-  projects,
-  handleFormClick,
-  showForm,
-}) => {
+const ProjectWindow: React.FC<ProjectWindowProps> = ({ projects }) => {
+  const [showModal, setShowModal] = useState<boolean>(false);
   return (
     <section className='projects'>
-      <button onClick={handleFormClick}>New Project</button>
-      {showForm && (
-        <form>
-          <label htmlFor='title'>Title</label>
-          <input type='text' id='title' />
-          <label htmlFor=''></label>
-        </form>
-      )}
+      <button onClick={() => setShowModal(true)}>Create Project</button>
+      {showModal && <CreateRepoModal setShowForm={setShowModal} />}
       {projects.map((project) => (
         <ProjectCard project={project} />
       ))}
