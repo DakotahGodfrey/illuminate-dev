@@ -12,7 +12,7 @@ node_modules/
 /build
 
 # misc
-dev.ts
+/server/keys/dev.ts
 .DS_Store
 .env.local
 .env.development.local
