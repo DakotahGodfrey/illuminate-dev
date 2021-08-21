@@ -1,6 +1,7 @@
 const GithubStrategy = require('passport-github2');
 import passport from 'passport';
 import mongoose from 'mongoose';
+import jwt from 'jsonwebtoken';
 
 const keys = require('../keys');
 const User = mongoose.model('users');
@@ -25,7 +26,7 @@ passport.deserializeUser((id, done) => {
 passport.use(
   new GithubStrategy(
     ghOptions,
-    async (accessToken: any, refreshToken: any, profile: any, done: any) => {
+    async (accessToken: string, refreshToken: any, profile: any, done: any) => {
       const existingUser = await User.findOne({ id: profile.id });
       if (existingUser) {
         return done(null, existingUser);
@@ -33,6 +34,8 @@ passport.use(
       const user = await new User({
         id: profile.id,
         username: profile.username,
+        ghToken: accessToken,
+        ghID: profile.nodeId,
       }).save();
       return done(null, user);
     }

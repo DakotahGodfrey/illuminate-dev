@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+import axios from 'axios';
 const CreateRepoWrapper = styled.div`
   position: fixed;
   top: 0;
@@ -60,10 +61,15 @@ const CreateRepoModal: React.FC<CreateRepoModalProps> = ({ setShowForm }) => {
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
 
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setShowForm(false);
     console.log({ title, description });
+    const response = await axios.post('/api/create-repo', {
+      name: title,
+      description: description,
+    });
+    console.log(response);
   };
 
   return (

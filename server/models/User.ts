@@ -9,6 +9,14 @@ const user = new mongoose.Schema({
     required: true,
     type: String,
   },
+  ghToken: {
+    required: true,
+    type: String,
+  },
+  ghID: {
+    required: true,
+    type: String,
+  },
 });
 
 export default mongoose.model('users', user);
