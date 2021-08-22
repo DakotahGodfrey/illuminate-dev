@@ -6,7 +6,6 @@ const MongoStore = require('connect-mongo');
 const passport = require('passport');
 const keys = require('./keys');
 const path = require('path');
-require('dotenv').config();
 require('./services/passport');
 
 connectDB();
@@ -19,7 +18,6 @@ if (process.env.NODE_ENV === 'development') {
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
   require('path');
-  console.log(path);
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
   });
