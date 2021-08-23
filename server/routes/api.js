@@ -3,9 +3,17 @@ const axios = require('axios');
 const router = express.Router();
 const API_URL = 'https://api.github.com/graphql';
 
+router.get('/current-user', (req, res) => {
+  if (req.user) {
+    console.log(req.user);
+    res.send(req.user);
+  } else {
+    res.status(404).send({ message: 'no user logged in' });
+    res.redirect('/auth');
+  }
+});
+
 router.post('/create-repo', async (req, res) => {
-  console.log(req.user);
-  console.log(req.body);
   const { ghID, accessToken } = req.user;
   if (!req.user) {
     res.status(403).send({ error: 'please login' });
@@ -35,7 +43,7 @@ router.post('/create-repo', async (req, res) => {
     { headers: { Authorization: `Bearer ${accessToken}` } }
   );
 
-  if (response.errors) {
+  if (response.data.errors) {
     res.status(403).send({
       error:
         'attempt failed please check that the repo does not already exist.',
